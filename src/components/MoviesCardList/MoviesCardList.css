@@ -1,0 +1,86 @@
+.movies-card-list {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 70px 70px 80px;
+}
+
+.movies-card-list__divider {
+  height: 1px;
+  background-color: #E8E8E8;
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.movies-card-list__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(263px, 1fr));
+  grid-auto-rows: 231px;
+  row-gap: 60px;
+  column-gap: 30px;
+  justify-items: center;
+}
+
+.movies-card-list__show-more {
+  width: 100%;
+  background-color: #F9F9F9;
+  border-radius: 6px;
+  border-style: none;
+  color: #000000;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.52px;
+  margin-top: 60px;
+  transition: all .3s ease;
+  cursor: pointer;
+  min-height: 36px;
+  padding: 0;
+}
+
+.movies-card-list__show-more:hover {
+  opacity: .8;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .movies-card-list {
+      width: clamp(708px, calc(708px + (((100vw - 768px) * 432) / 512)), 1140px);
+      padding: 70px calc(30px + (((100vw - 768px) * 40) / 512)) 80px calc(30px + (((100vw - 768px) * 40) / 512));
+  }
+
+  .movies-card-list__list {
+    row-gap: calc(47px + (((100vw - 768px) * 13) / 512));
+  }
+
+  .movies-card-list__show-more {
+    margin-top: calc(50px + (((100vw - 768px) * 10) / 512));
+  }
+
+}
+
+@media screen and (max-width: 767.98px) {
+
+  .movies-card-list {
+      width: clamp(300px, calc(300px + (((100vw - 320px) * 376) / 408)), 708px);
+      padding: calc(40px + (((100vw - 320px) * 30) / 448)) calc(10px + (((100vw - 320px) * 20) / 448)) 80px calc(10px + (((100vw - 320px) * 20) / 448));
+  }
+
+  .movies-card-list__list {
+    row-gap: calc(39px + (((100vw - 320px) * 8) / 448));
+    grid-auto-rows: calc(199px + (((100vw - 320px) * 32) / 448));
+  }
+
+  .movies-card-list__show-more {
+    margin-top: 50px;
+  }
+
+  .movies-card-list__divider {
+    margin-bottom: calc(50px + (((100vw - 320px) * 20) / 448));
+  }
+
+}

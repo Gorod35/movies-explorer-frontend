@@ -1,0 +1,65 @@
+.promo {
+  background-color: #F3C1F8;
+  width: 100%;
+}
+
+.promo__title {
+  max-width: 626px;
+  font-size: 40px;
+  line-height: 52px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.promo__container {
+  max-width: 1140px;
+  margin: 50px auto 60px auto;
+}
+
+.landing__picture {
+  width: 722px;
+  height: 244px;
+  background-image: url(../../images/landing-logo.svg);
+  margin: 102px 0px 0px auto;
+  background-size: cover;
+  background-position: center;
+}
+
+@media screen and (min-width: 768.02px) and (max-width: 1280px) {
+  .promo__container {
+    max-width: clamp(680px, calc(680px + (((100vw - 768px) * 460) / 512)), 1140px);
+    margin: calc(300px - (((100vw - 768px) * 250) / 512)) auto calc(70px - (((100vw - 768px) * 10) / 512)) auto;
+  }
+
+  .landing__picture {
+    margin: calc(140px - (((100vw - 768px) * 38) / 512)) 0px 0px auto;
+    max-width: calc(680px + (((100vw - 768px) * 42) / 512));
+    height: calc(230px + (((100vw - 768px) * 14) / 512));
+  }
+
+}
+
+@media screen and (max-width: 768.02px) {
+
+  .promo__container {
+    max-width: clamp(300px, calc(300px + (((100vw - 320px) * 380) / 448)), 680px);
+    margin: calc(183px + (((100vw - 320px) * 117) / 448)) auto calc(40px + (((100vw - 320px) * 30) / 448)) auto;
+  }
+
+  .promo__title {
+    text-align: center;
+    margin: 0 auto;
+    font-size: clamp(31px, calc(31px + (((100vw - 320px) * 9) / 448)), 40px);
+    line-height: clamp(39px, calc(39px + (((100vw - 320px) * 13) / 448)), 52px);
+  }
+
+  .landing__picture {
+    margin: calc(60px + (((100vw - 320px) * 80) / 448)) auto 0px auto;
+    max-width: calc(320px + (((100vw - 320px) * 360) / 448));
+    height: 230px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+}
