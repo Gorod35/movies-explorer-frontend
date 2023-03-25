@@ -1,0 +1,140 @@
+.search {
+  max-width: 1140px;
+  width: 100%;
+  margin: 70px 70px 0px 70px;
+  display: flex;
+  align-items: center;
+  background-color: #F9F9F9;
+  border-radius: 9px;
+  position: relative;
+}
+
+.search__clue {
+  background-image: url(../../images/find-button-gray.svg);
+  min-width: 34px;
+  min-height: 34px;
+  margin: 19px 10px 19px 19px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.search__form {
+  width: 100%;
+  display: flex;
+  background-color: #F9F9F9;
+  border-radius: 9px;
+  align-items: center;
+}
+
+.search__input {
+  width: 100%;
+  background-color: #F9F9F9;
+  border: none;
+  padding: 0px;
+}
+
+.search__input::placeholder {
+  color: #A0A0A0;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.search__input:focus-visible {
+  outline: none;
+}
+
+.search__error {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  color: #ee3465;
+  position: absolute;
+  top: 70px;
+  left: 0;
+}
+
+.search__button {
+  min-width: 34px;
+  min-height: 34px;
+  background-color: #000;
+  border: 0;
+  border-radius: 48px;
+  background-image: url(../../images/find-button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.search__delimiter {
+  background-image: url(../../images/delimiter.svg);
+  min-width: 1px;
+  min-height: 40px;
+  margin: 0 30px;
+}
+
+.search__button:hover {
+  opacity: .8;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .search {
+      width: clamp(708px, calc(708px + (((100vw - 768px) * 432) / 512)), 1140px);
+      margin: calc(80px - (((100vw - 768px) * 10) / 512)) calc(30px + (((100vw - 768px) * 40) / 512)) 0 calc(30px + (((100vw - 768px) * 40) / 512));
+  }
+
+  .search__delimiter {
+    margin: 0 calc(19px + (((100vw - 768px) * 11) / 512));
+  }
+
+  .search::after {
+    top: calc(181px - (((100vw - 768px) * 40) / 512));
+    width: clamp(708px, calc(708px + (((100vw - 768px) * 432) / 512)), 1140px);
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .search {
+    flex-direction: column;
+    background: none;
+    gap: 45px;
+  }
+
+  .search__clue {
+    display: none;
+  }
+
+  .search__delimiter {
+    display: none;
+  }
+
+  .search__form {
+    min-height: 72px;
+  }
+
+  .search__input {
+    margin-left: 19px;
+  }
+
+  .search__input::placeholder {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .search__button {
+    margin-right: 19px;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+
+  .search {
+      width: clamp(300px, calc(300px + (((100vw - 320px) * 408) / 448)), 708px);
+      margin: 80px calc(10px + (((100vw - 320px) * 20) / 448)) 0px calc(10px + (((100vw - 320px) * 20) / 448));
+  }
+
+  .search__delimiter {
+    margin: 0 19px;
+  }
+
+}
