@@ -76,10 +76,6 @@
     cursor: pointer;
 }
 
-/* .movies-card__button:hover {
-    opacity: .8;
-} */
-
 .movies-card__button_type_saved {
     content: '';
     background: #FF4062;

@@ -7,6 +7,8 @@ export default function FilterCheckbox({ shortMovies, handleShortFilms }) {
         <input
           className="filter__checkbox"
           type="checkbox"
+          onChange={handleShortFilms}
+          checked={shortMovies ? true : false}
         />
         <span className="filter__tumbler"></span>
       </label>
