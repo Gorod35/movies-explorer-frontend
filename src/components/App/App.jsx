@@ -151,21 +151,21 @@ function App() {
     setIsLoader(true);
     mainApi.updateUser(name, email).then(newUserData => {
       setCurrentUser(newUserData);
-        setIsInfoTooltip({
-          isOpen: true,
-          successful: true,
-          text: 'Данные обновлены успешно!',
-        });
-    })
-    .catch(err =>
       setIsInfoTooltip({
         isOpen: true,
-        successful: false,
-        text: err,
-      })
-    )
-    .finally(() => setIsLoader(false));
-      
+        successful: true,
+        text: 'Данные обновлены успешно!',
+      });
+    })
+      .catch(err =>
+        setIsInfoTooltip({
+          isOpen: true,
+          successful: false,
+          text: err,
+        })
+      )
+      .finally(() => setIsLoader(false));
+
   }
 
   // сохраняем лайкнутый фильм в список
@@ -285,15 +285,14 @@ function App() {
               handleProfile={handleProfile}
               handleSignOut={handleSignOut}
             />
-
+            <Route path='*'>
+              <NotFound goBack={goBack} />
+            </Route>
           </Switch>
           <Route exact path={footerEndpoints}>
             <Footer />
           </Route>
           <Preloader isOpen={isLoader} />
-          <Route path='*'>
-            <NotFound goBack={goBack} />
-          </Route>
           <InfoTooltip status={isInfoTooltip} onClose={closeInfoTooltip} />
         </CurrentUserContext.Provider>
       )}
