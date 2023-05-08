@@ -1,11 +1,14 @@
 import React from 'react'
 import './Preloader.css'
 
-const Preloader = () => {
+const Preloader = ({ isLoading }) => {
     return (
-        <div className="preloader">
-            <div className="preloader__container">
-                <span className="preloader__round"></span>
+        <div className='preloader'>
+            <div className='lds-ring'>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
     )

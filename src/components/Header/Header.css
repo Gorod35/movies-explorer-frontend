@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.header__hidden {
+    display: none;
+}
+
 .header_theme_bright {
     background-color: #F3C1F8;
 }

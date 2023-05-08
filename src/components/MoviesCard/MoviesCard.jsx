@@ -1,26 +1,46 @@
 import './MoviesCard.css';
-import movieImage from '../../images/movie-image.jpg';
-import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { transformDuration, transformMovieImage, transformMovie } from '../../utils/utils';
 
-export default function MoviesCard() {
+export default function MoviesCard({ movie, saved, onLikeClick, onDeleteClick }) {
 
-    const [style, setStyle] = useState('movies-card__button');
+    const location = useLocation();
 
-    function changeStyle() {
-        setStyle(`movies-card__button movies-card__button_type_saved`);
+    const handleLikeClick = () => {
+        transformMovie(movie);
+        onLikeClick(movie);
+    }
+
+    const handleDeleteClick = () => {
+        onDeleteClick(movie);
     }
 
     return (
         <li className="movies-card">
             <article className="movies-card__item">
-                <button className={style} onClick={changeStyle}>Сохранить</button>
-                <a className='movies-card__link' target="_blank" rel="noreferrer" href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>
-                    <img src={movieImage} alt='Фильм' title={`Описание: 33 слова о дизайне`} className="movies-card__poster"
+                {location.pathname === '/movies' && (
+                    <button
+                        type="button"
+                        className={`movies-card__button movies-card__button_type_${saved ? 'saved' : ''}`}
+                        onClick={saved ? handleDeleteClick : handleLikeClick}
+                        title={`${saved ? 'Удалить фильм из сохранённых' : 'Сохранить фильм'}`}
+                    >{`${saved ? '' : 'Сохранить'}`}</button>
+                )}
+                {location.pathname === '/saved-movies' && (
+                    <button
+                        type="button"
+                        className="movies-card__button movies-card__button_type_delete"
+                        onClick={handleDeleteClick}
+                        title="Удалить фильм из сохранённых"
+                    ></button>
+                )}
+                <a className='movies-card__link' target="_blank" rel="noreferrer" href={movie.trailerLink}>
+                    <img src={transformMovieImage(movie.image)} alt={`Обложка фильма: ${movie.nameRU}`} title={`Описание: ${movie.nameRU}`} className="movies-card__poster"
                     />
                 </a>
                 <div className="movies-card__description">
-                    <h2 className="movies-card__title">33 слова о дизайне</h2>
-                    <span className="movies-card__duration">1ч 17м</span>
+                    <h2 className="movies-card__title">{movie.nameRU}</h2>
+                    <span className="movies-card__duration">{transformDuration(movie.duration)}</span>
                 </div>
             </article>
         </li>
