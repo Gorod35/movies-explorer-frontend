@@ -247,12 +247,11 @@ function App() {
     setIsLoading(true);
     moviesApi.getMovies()
       .then((res) => {
+        localStorage.setItem('inputValues', values.search);
         if (filterMovies(res, values.search, isShortMovie).length) {
           setInitialMoviesList(filterMovies(res, values.search, false));
           setMoviesList(filterMovies(res, values.search, isShortMovie));
           localStorage.setItem('movies', JSON.stringify(filterMovies(res, values.search, isShortMovie)));
-          localStorage.setItem('inputValues', values.search);
-          localStorage.setItem('isShortMovie', isShortMovie);
         } else {
           setMoviesList([]);
           setIsInfoTooltip({

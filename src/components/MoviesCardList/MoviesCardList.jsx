@@ -13,7 +13,6 @@ export default function MoviesCardList({ moviesList, savedMovies, onLikeClick, o
 
     function windowSize() {
         if (moviesList.length) {
-            // console.log('1');
             if (window.innerWidth >= 935) {
                 setShowMoviesList(moviesList.filter((item, i) => i < 12));
                 setAdditionalNumbers(3);
