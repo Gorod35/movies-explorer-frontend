@@ -369,8 +369,16 @@ function App() {
             {isLoading && <Preloader />}
             {isInfoTooltip.isOpen && <InfoTooltip onClose={closeInfoTooltip} status={isInfoTooltip} />}
           </>}>
-            <Route path='signup' element={<Register onRegister={handleRegister} />} />
-            <Route path='signin' element={<Login onLogin={handleLogin} />} />
+            <Route path='signup' element={
+              <ProtectedRoute loggedIn={loggedIn}>
+                <Register onRegister={handleRegister} />
+              </ProtectedRoute>
+            } />
+            <Route path='signin' element={
+              <ProtectedRoute loggedIn={loggedIn}>
+                <Login onLogin={handleLogin} />
+              </ProtectedRoute>
+            } />
             <Route path='movies' element={<>
               <ProtectedRoute loggedIn={loggedIn}>
                 <Movies moviesList={moviesList} onSearch={handleSearch} onShortMovie={handleShortMovie} isShortMovie={isShortMovie} savedMovies={savedMovies} onLikeClick={handleLikeClick} onDeleteClick={handleDeleteClick} />
