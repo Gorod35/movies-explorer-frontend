@@ -30,6 +30,7 @@ export default function Login({ onLogin }) {
                                 type="email"
                                 required
                                 onChange={handleChange}
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                 value={values.email || ''}
                             />
                             <span className={`login__error ${errors.email ? '' : 'login__error_hidden'}`}>{errors.email}</span>

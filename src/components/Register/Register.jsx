@@ -45,6 +45,7 @@ export default function Register( { onRegister } ) {
                                 required
                                 value={values.email || ''} 
                                 onChange={handleChange}
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                             />
                             <span className={`register__error ${errors.email ? '' : 'register__error_hidden'}`}>{errors.email}</span>
                         </label>
