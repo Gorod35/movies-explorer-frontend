@@ -307,8 +307,16 @@ function App() {
   function handleLogOut() {
     setCurrentUser({});
     setLoggedIn(false);
+    setIsShortMovie(false);
+    setIsShortSavedMovie(false);
+    setSavedMovies([]);
+    setInitialSavedMoviesList([]);
+    setFilteredSavedMovies([]);
+    setMoviesList([]);
+    setInitialMoviesList([]);
     localStorage.clear();
     navigate('/');
+    window.location.reload();
   }
 
   function handleShortMovie() {
